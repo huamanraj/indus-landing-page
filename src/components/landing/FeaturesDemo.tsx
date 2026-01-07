@@ -67,7 +67,22 @@ const features = [
 
 export default function FeaturesDemo() {
   const [activeFeatureIndex, setActiveFeatureIndex] = useState(0);
+  const [demoState, setDemoState] = useState<"idle" | "calling" | "success">(
+    "idle"
+  );
   const activeFeature = features[activeFeatureIndex];
+
+  const handleDemoSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setDemoState("calling");
+
+    // Simulate API call
+    setTimeout(() => {
+      setDemoState("success");
+      // Reset after showing success
+      setTimeout(() => setDemoState("idle"), 3000);
+    }, 2000);
+  };
 
   return (
     <section id="cases" className="py-20 scroll-mt-20">
@@ -157,56 +172,114 @@ export default function FeaturesDemo() {
               </div>
 
               {/* Demo Form */}
-              <div className="p-6 sm:p-8 md:p-10 bg-[rgba(14,18,21,0.5)] backdrop-blur-sm">
-                <h3 className="text-[18px] sm:text-[20px] text-white mb-6 font-semibold flex items-center gap-2">
-                  <i className="ph ph-lightning text-accent-primary"></i>
-                  Test this agent live
-                </h3>
+              <div className="relative p-6 sm:p-8 md:p-10 bg-[rgba(14,18,21,0.6)] backdrop-blur-md">
+                {/* Decorative background gradients */}
+                <div className="absolute top-0 right-0 w-32 h-32 bg-accent-primary/10 blur-[50px] rounded-full pointer-events-none"></div>
+                <div className="absolute bottom-0 left-0 w-24 h-24 bg-blue-500/10 blur-[40px] rounded-full pointer-events-none"></div>
 
-                <div className="space-y-4">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-[12px] font-medium text-text-secondary mb-2 uppercase tracking-wide">
-                        Name
-                      </label>
-                      <input
-                        type="text"
-                        className="w-full bg-[rgba(0,0,0,0.3)] border border-border-light p-3 rounded-xl text-white font-inherit focus:outline-none focus:border-accent-primary transition-all placeholder:text-text-muted/50"
-                        placeholder="Jane Doe"
-                      />
+                <div className="relative z-10">
+                  <h3 className="text-[18px] sm:text-[20px] text-white mb-6 font-semibold flex items-center gap-2.5">
+                    <div className="w-8 h-8 rounded-full bg-accent-primary/20 flex items-center justify-center">
+                      <i className="ph-fill ph-lightning text-accent-primary text-lg"></i>
                     </div>
-                    <div>
-                      <label className="block text-[12px] font-medium text-text-secondary mb-2 uppercase tracking-wide">
-                        Phone Number
-                      </label>
-                      <input
-                        type="tel"
-                        className="w-full bg-[rgba(0,0,0,0.3)] border border-border-light p-3 rounded-xl text-white font-inherit focus:outline-none focus:border-accent-primary transition-all placeholder:text-text-muted/50"
-                        placeholder="+1 (555) 000-0000"
-                      />
+                    Test this agent live
+                  </h3>
+
+                  <form onSubmit={handleDemoSubmit} className="space-y-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      {/* Name Input */}
+                      <div className="space-y-1.5">
+                        <label className="block text-[11px] font-semibold text-text-secondary uppercase tracking-wider pl-1">
+                          Name
+                        </label>
+                        <div className="relative group">
+                          <div className="absolute left-3.5 top-1/2 -translate-y-1/2 text-text-secondary group-focus-within:text-accent-primary transition-colors duration-300">
+                            <i className="ph ph-user text-lg"></i>
+                          </div>
+                          <input
+                            type="text"
+                            required
+                            className="w-full bg-black/20 border border-border-light/50 focus:border-accent-primary/50 p-3 pl-10 rounded-xl text-white font-medium focus:outline-none focus:ring-1 focus:ring-accent-primary/50 transition-all duration-300 placeholder:text-text-muted/30 hover:bg-black/30 hover:border-border-hover"
+                            placeholder="Jane Doe"
+                          />
+                        </div>
+                      </div>
+
+                      {/* Phone Input */}
+                      <div className="space-y-1.5">
+                        <label className="block text-[11px] font-semibold text-text-secondary uppercase tracking-wider pl-1">
+                          Phone Number
+                        </label>
+                        <div className="relative group">
+                          <div className="absolute left-3.5 top-1/2 -translate-y-1/2 text-text-secondary group-focus-within:text-accent-primary transition-colors duration-300">
+                            <i className="ph ph-phone text-lg"></i>
+                          </div>
+                          <input
+                            type="tel"
+                            required
+                            className="w-full bg-black/20 border border-border-light/50 focus:border-accent-primary/50 p-3 pl-10 rounded-xl text-white font-medium focus:outline-none focus:ring-1 focus:ring-accent-primary/50 transition-all duration-300 placeholder:text-text-muted/30 hover:bg-black/30 hover:border-border-hover"
+                            placeholder="+1 (555) 000-0000"
+                          />
+                        </div>
+                      </div>
                     </div>
-                  </div>
 
-                  <div>
-                    <label className="block text-[12px] font-medium text-text-secondary mb-2 uppercase tracking-wide">
-                      Work Email
-                    </label>
-                    <input
-                      type="email"
-                      className="w-full bg-[rgba(0,0,0,0.3)] border border-border-light p-3 rounded-xl text-white font-inherit focus:outline-none focus:border-accent-primary transition-all placeholder:text-text-muted/50"
-                      placeholder="jane@company.com"
-                    />
-                  </div>
+                    {/* Email Input */}
+                    <div className="space-y-1.5">
+                      <label className="block text-[11px] font-semibold text-text-secondary uppercase tracking-wider pl-1">
+                        Work Email
+                      </label>
+                      <div className="relative group">
+                        <div className="absolute left-3.5 top-1/2 -translate-y-1/2 text-text-secondary group-focus-within:text-accent-primary transition-colors duration-300">
+                          <i className="ph ph-envelope-simple text-lg"></i>
+                        </div>
+                        <input
+                          type="email"
+                          required
+                          className="w-full bg-black/20 border border-border-light/50 focus:border-accent-primary/50 p-3 pl-10 rounded-xl text-white font-medium focus:outline-none focus:ring-1 focus:ring-accent-primary/50 transition-all duration-300 placeholder:text-text-muted/30 hover:bg-black/30 hover:border-border-hover"
+                          placeholder="jane@company.com"
+                        />
+                      </div>
+                    </div>
 
-                  <button className="w-full mt-4 inline-flex items-center justify-center px-6 py-4 rounded-xl font-bold text-[15px] bg-white text-black border border-white hover:shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:-translate-y-0.5 transition-all cursor-pointer group">
-                    <span className="mr-2">Call Me Now</span>
-                    <i className="ph ph-phone-call text-lg group-hover:translate-x-1 transition-transform"></i>
-                  </button>
+                    <button
+                      type="submit"
+                      disabled={demoState !== "idle"}
+                      className={`w-full mt-2 relative overflow-hidden inline-flex items-center justify-center px-6 py-4 rounded-xl font-bold text-[15px] transition-all duration-300 
+                        ${
+                          demoState === "success"
+                            ? "bg-emerald-500 text-white border-emerald-400"
+                            : "bg-white text-black border-white hover:shadow-[0_0_25px_rgba(255,255,255,0.3)] hover:-translate-y-0.5"
+                        } disabled:opacity-90 disabled:cursor-not-allowed border`}
+                    >
+                      {demoState === "idle" && (
+                        <>
+                          <span className="mr-2">Call Me Now</span>
+                          <i className="ph-bold ph-phone-call text-lg group-hover:translate-x-1 transition-transform"></i>
+                        </>
+                      )}
 
-                  <p className="text-[11px] text-text-muted text-center leading-[1.4] pt-2">
-                    Standard carrier rates may apply. By clicking, you agree to
-                    our Terms.
-                  </p>
+                      {demoState === "calling" && (
+                        <>
+                          <span className="mr-2">Connecting</span>
+                          <div className="flex gap-1 items-center">
+                            <span className="w-1 h-1 bg-black rounded-full animate-bounce [animation-delay:-0.3s]"></span>
+                            <span className="w-1 h-1 bg-black rounded-full animate-bounce [animation-delay:-0.15s]"></span>
+                            <span className="w-1 h-1 bg-black rounded-full animate-bounce"></span>
+                          </div>
+                        </>
+                      )}
+
+                      {demoState === "success" && (
+                        <>
+                          <span className="mr-2">Calling You!</span>
+                          <i className="ph-bold ph-check text-lg"></i>
+                        </>
+                      )}
+                    </button>
+
+                    
+                  </form>
                 </div>
               </div>
             </Reveal>

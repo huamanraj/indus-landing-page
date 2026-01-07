@@ -11,7 +11,7 @@ import Footer from "@/components/landing/Footer";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-bg-body text-text-primary">
+    <main className="min-h-screen bg-charcoal-sand text-text-primary">
       <Header />
       <Hero />
       <SocialProof />
