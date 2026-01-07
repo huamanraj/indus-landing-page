@@ -11,17 +11,20 @@ import Footer from "@/components/landing/Footer";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-charcoal-sand text-text-primary">
-      <Header />
-      <Hero />
-      <SocialProof />
-      <FeaturesDemo />
-      <HowItWorks />
-      <EnterpriseSecurity />
-      <Pricing />
-      <FAQ />
-      <FooterCTA />
-      <Footer />
+    <main className="relative isolate min-h-screen bg-charcoal-sand text-text-primary">
+      <div className="noise-overlay" aria-hidden="true" />
+      <div className="relative z-10">
+        <Header />
+        <Hero />
+        <SocialProof />
+        <FeaturesDemo />
+        <HowItWorks />
+        <EnterpriseSecurity />
+        <Pricing />
+        <FAQ />
+        <FooterCTA />
+        <Footer />
+      </div>
     </main>
   );
 }

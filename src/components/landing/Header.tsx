@@ -22,10 +22,10 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-[100] flex justify-center px-4 sm:px-6 lg:px-0 pointer-events-none pt-0">
       <nav
-        className={`pointer-events-auto w-full max-w-[var(--container-width)] flex items-center justify-between px-6 py-4 rounded-b-[24px] border-b border-x border-border-light backdrop-blur-md transition-all duration-300 ${
+        className={`pointer-events-auto w-full max-w-[var(--container-width)] flex items-center justify-between px-6 py-4 rounded-b-[24px] border-b border-x border-border-light backdrop-blur-xl transition-all duration-300 ${
           scrolled
-            ? "bg-[rgba(7,10,11,0.95)] shadow-[0_10px_40px_-10px_rgba(0,0,0,0.5)]"
-            : "bg-[rgba(7,10,11,0.8)] shadow-none"
+            ? "bg-[rgba(7,10,11,0.82)] shadow-[0_10px_40px_-10px_rgba(0,0,0,0.5)]"
+            : "bg-[rgba(7,10,11,0.45)] shadow-none"
         }`}
       >
         <Link

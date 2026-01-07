@@ -3,9 +3,50 @@ import Link from "next/link";
 
 export default function Hero() {
   return (
-    <section className="pt-[100px] pb-[60px] relative text-center overflow-hidden">
-      <div className="absolute w-[800px] h-[800px] bg-[radial-gradient(circle,rgba(46,56,110,0.25)_0%,rgba(7,10,11,0)_70%)] top-[-200px] left-1/2 -translate-x-1/2 -z-1 pointer-events-none"></div>
-      <Reveal className="container max-w-[var(--container-width)] mx-auto px-4 sm:px-6">
+    <section className="pt-[188px] pb-[60px] -mt-[88px] relative text-center overflow-hidden">
+      {/* 3D background */}
+      <div className="hero-3d-bg" aria-hidden="true">
+        <div className="hero-3d-scene">
+          <div className="hero-3d-grid" />
+          <div
+            className="hero-3d-orb hero-3d-orb--accent"
+            style={
+              {
+                ["--x" as any]: "18%",
+                ["--y" as any]: "32%",
+                ["--z" as any]: "140px",
+                ["--s" as any]: "520px",
+              } as React.CSSProperties
+            }
+          />
+          <div
+            className="hero-3d-orb hero-3d-orb--cool"
+            style={
+              {
+                ["--x" as any]: "72%",
+                ["--y" as any]: "18%",
+                ["--z" as any]: "60px",
+                ["--s" as any]: "620px",
+              } as React.CSSProperties
+            }
+          />
+          <div
+            className="hero-3d-orb hero-3d-orb--accent"
+            style={
+              {
+                ["--x" as any]: "68%",
+                ["--y" as any]: "62%",
+                ["--z" as any]: "220px",
+                ["--s" as any]: "420px",
+              } as React.CSSProperties
+            }
+          />
+        </div>
+      </div>
+
+      <div className="absolute w-[800px] h-[800px] bg-[radial-gradient(circle,rgba(46,56,110,0.25)_0%,rgba(7,10,11,0)_70%)] top-[-200px] left-1/2 -translate-x-1/2 z-[-1] pointer-events-none"></div>
+
+      <Reveal className="container max-w-[var(--container-width)] mx-auto px-4 sm:px-6 relative z-10">
         <span className="text-[10px] sm:text-[11px] font-bold tracking-[0.05em] uppercase text-accent-primary bg-[rgba(99,242,154,0.08)] px-3 py-1.5 rounded-full border border-[rgba(99,242,154,0.2)] inline-block mb-6">
           MEET INDUS CALLING AGENTS
         </span>
