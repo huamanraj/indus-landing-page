@@ -14,7 +14,7 @@ const spaceMono = Space_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Indus | AI Calling Agents",
+  title: "Mercury | AI Calling Agents",
   description: "AI Calling Agents",
 };
 

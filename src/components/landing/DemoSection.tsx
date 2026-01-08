@@ -88,7 +88,7 @@ export default function DemoSection() {
                 ))}
               </div>
               <p className="font-space-mono text-accent-primary text-[14px]">
-                "Thanks for calling Indus. How can I direct your call today?"
+                "Thanks for calling Mercury. How can I direct your call today?"
               </p>
             </div>
           </div>

@@ -4,7 +4,7 @@
   /* Palette */
   --bg-body: #111111;
   /* Charcoal-like dark background */
-  --bg-surface: #1A1A1A;
+  --bg-surface: #0f0f0f;
   --bg-surface-hover: #222222;
   --accent-primary: #63F29A;
   --accent-glow: rgba(99, 242, 154, 0.15);
@@ -62,11 +62,14 @@ body {
 
 /* Utilities kept from CSS */
 .noise-overlay {
-  position: absolute; /* was: fixed */
+  position: absolute;
+  /* was: fixed */
   inset: 0;
   pointer-events: none;
-  z-index: 0; /* was: 9999 */
-  opacity: 0.04; /* was: 0.08 (and you also have bg-charcoal-sand noise) */
+  z-index: 0;
+  /* was: 9999 */
+  opacity: 0.04;
+  /* was: 0.08 (and you also have bg-charcoal-sand noise) */
   mix-blend-mode: soft-light;
 
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.55'/%3E%3C/svg%3E");
@@ -128,14 +131,17 @@ body {
   background-size: 180px 180px;
 
   /* blend to look like sand/grain */
-  mix-blend-mode: soft-light; /* was: overlay */
-  opacity: 0.12; /* was: 0.18 */
+  mix-blend-mode: soft-light;
+  /* was: overlay */
+  opacity: 0.12;
+  /* was: 0.18 */
 }
 
 /* Footer parallax wordmark */
 .footer-parallax {
   position: relative;
-  isolation: isolate; /* keeps blend/mask effects contained */
+  isolation: isolate;
+  /* keeps blend/mask effects contained */
 }
 
 .footer-wordmark {
@@ -161,18 +167,14 @@ body {
   will-change: transform, opacity;
 
   /* reveal from bottom, fade out upward */
-  -webkit-mask-image: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 1) 0%,
-    rgba(0, 0, 0, 1) 38%,
-    rgba(0, 0, 0, 0) 92%
-  );
-  mask-image: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 1) 0%,
-    rgba(0, 0, 0, 1) 38%,
-    rgba(0, 0, 0, 0) 92%
-  );
+  -webkit-mask-image: linear-gradient(to top,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 1) 38%,
+      rgba(0, 0, 0, 0) 92%);
+  mask-image: linear-gradient(to top,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 1) 38%,
+      rgba(0, 0, 0, 0) 92%);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -214,8 +216,8 @@ body {
   opacity: 0.45;
 
   /* vignette + fade out toward edges */
-  -webkit-mask-image: radial-gradient(closest-side, rgba(0,0,0,1) 0%, rgba(0,0,0,0.0) 78%);
-  mask-image: radial-gradient(closest-side, rgba(0,0,0,1) 0%, rgba(0,0,0,0.0) 78%);
+  -webkit-mask-image: radial-gradient(closest-side, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.0) 78%);
+  mask-image: radial-gradient(closest-side, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.0) 78%);
   filter: blur(0.2px);
 }
 
@@ -248,18 +250,35 @@ body {
 }
 
 @keyframes heroSceneRotate {
-  0% { transform: rotateY(-10deg) rotateX(2deg); }
-  50% { transform: rotateY(10deg) rotateX(-2deg); }
-  100% { transform: rotateY(-10deg) rotateX(2deg); }
+  0% {
+    transform: rotateY(-10deg) rotateX(2deg);
+  }
+
+  50% {
+    transform: rotateY(10deg) rotateX(-2deg);
+  }
+
+  100% {
+    transform: rotateY(-10deg) rotateX(2deg);
+  }
 }
 
 @keyframes heroOrbFloat {
-  0% { transform: translate3d(-50%, -50%, var(--z, 120px)) rotateZ(0deg); }
-  50% { transform: translate3d(-50%, calc(-50% - 14px), calc(var(--z, 120px) + 40px)) rotateZ(10deg); }
-  100% { transform: translate3d(-50%, -50%, var(--z, 120px)) rotateZ(0deg); }
+  0% {
+    transform: translate3d(-50%, -50%, var(--z, 120px)) rotateZ(0deg);
+  }
+
+  50% {
+    transform: translate3d(-50%, calc(-50% - 14px), calc(var(--z, 120px) + 40px)) rotateZ(10deg);
+  }
+
+  100% {
+    transform: translate3d(-50%, -50%, var(--z, 120px)) rotateZ(0deg);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   .hero-3d-scene,
   .hero-3d-orb {
     animation: none !important;

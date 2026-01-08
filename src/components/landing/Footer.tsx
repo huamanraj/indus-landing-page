@@ -77,7 +77,7 @@ export default function Footer() {
         }
         aria-hidden="true"
       >
-        INDUS
+        MERCURY
       </div>
 
       <div className="container max-w-[var(--container-width)] mx-auto px-6 relative z-10">
@@ -89,7 +89,7 @@ export default function Footer() {
               className="flex items-center gap-2 font-bold text-xl text-white no-underline mb-4"
             >
               <div className="w-6 h-6 bg-accent-primary rounded-md shadow-[0_0_0_1px_rgba(99,242,154,0.18),0_0_24px_rgba(99,242,154,0.12)]" />
-              INDUS
+              MERCURY
             </Link>
             <p className="text-[14px] text-text-secondary leading-[1.7] max-w-[46ch]">
               Enterprise-grade conversational AI infrastructure: voice agents,
@@ -136,7 +136,9 @@ export default function Footer() {
         {/* Links */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 pb-12">
           <div>
-            <h4 className="text-[14px] text-white mb-4 font-semibold">Product</h4>
+            <h4 className="text-[14px] text-white mb-4 font-semibold">
+              Product
+            </h4>
             <ul className="list-none p-0 space-y-3">
               {/* ...existing links, updated styling... */}
               <li>
@@ -175,7 +177,9 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="text-[14px] text-white mb-4 font-semibold">Company</h4>
+            <h4 className="text-[14px] text-white mb-4 font-semibold">
+              Company
+            </h4>
             <ul className="list-none p-0 space-y-3">
               <li>
                 <Link
@@ -213,7 +217,9 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="text-[14px] text-white mb-4 font-semibold">Developers</h4>
+            <h4 className="text-[14px] text-white mb-4 font-semibold">
+              Developers
+            </h4>
             <ul className="list-none p-0 space-y-3">
               <li>
                 <Link
@@ -283,7 +289,7 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="pt-8 border-t border-border-light flex flex-col md:flex-row gap-4 justify-between items-start md:items-center text-[13px] text-text-muted">
-          <div>&copy; 2024 Indus AI Inc. All rights reserved.</div>
+          <div>&copy; 2024 Mercury AI Inc. All rights reserved.</div>
           <div className="flex gap-4">
             <Link
               href="#"

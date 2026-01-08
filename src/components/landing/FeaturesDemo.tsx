@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Reveal from "./Reveal";
+import GrainOverlay from "./GrainOverlay";
 
 const features = [
   {
@@ -10,7 +11,8 @@ const features = [
     title: "Receptionist",
     description:
       "Handles after-hours calls, answers FAQs, and routes complex issues.",
-    transcript: '"Thanks for calling Indus. How can I direct your call today?"',
+    transcript:
+      '"Thanks for calling Mercury. How can I direct your call today?"',
     chip: "Reception",
   },
   {
@@ -103,14 +105,17 @@ export default function FeaturesDemo() {
               <div
                 key={feature.id}
                 onClick={() => setActiveFeatureIndex(index)}
-                className={`p-5 rounded-[16px] border cursor-pointer transition-all duration-300 flex items-start gap-4 ${
+                className={`p-5 rounded-[16px] border cursor-pointer transition-all duration-300 flex items-start gap-4 relative overflow-hidden ${
                   activeFeatureIndex === index
                     ? "bg-bg-surface-hover border-accent-primary shadow-[0_0_20px_rgba(99,242,154,0.05)]"
                     : "bg-bg-surface border-border-light hover:border-border-hover hover:bg-bg-surface-hover"
                 }`}
               >
+                {/* Grain overlay */}
+                <GrainOverlay opacity={0.1} />
+
                 <div
-                  className={`w-10 h-10 rounded-lg flex-shrink-0 flex items-center justify-center text-xl transition-colors ${
+                  className={`w-10 h-10 rounded-lg flex-shrink-0 flex items-center justify-center text-xl transition-colors relative z-[2] ${
                     activeFeatureIndex === index
                       ? "bg-accent-primary text-black"
                       : "bg-[rgba(255,255,255,0.05)] text-white"
@@ -118,7 +123,7 @@ export default function FeaturesDemo() {
                 >
                   <i className={`ph ${feature.icon}`}></i>
                 </div>
-                <div>
+                <div className="relative z-[2]">
                   <h3
                     className={`text-[16px] font-medium mb-1 ${
                       activeFeatureIndex === index
@@ -139,11 +144,14 @@ export default function FeaturesDemo() {
           {/* Right Column: Sticky Demo Interface */}
           <div className="lg:col-span-7 lg:sticky lg:top-24">
             <Reveal className="bg-bg-surface border border-border-light rounded-[24px] overflow-hidden relative shadow-2xl">
+              {/* Grain overlay */}
+              <GrainOverlay opacity={0.15} />
+
               {/* Top highlight */}
-              <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(255,255,255,0.1)] to-transparent"></div>
+              <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(255,255,255,0.1)] to-transparent z-[2]"></div>
 
               {/* Demo Header / Preview Area */}
-              <div className="bg-gradient-to-b from-[rgba(20,25,30,1)] to-[rgba(10,12,14,1)] p-6 sm:p-8 border-b border-border-light relative overflow-hidden">
+              <div className="bg-gradient-to-b from-[rgba(20,25,30,1)] to-[rgba(10,12,14,1)] p-6 sm:p-8 border-b border-border-light relative overflow-hidden z-[2]">
                 <div className="flex justify-center mb-6">
                   <span className="text-[10px] sm:text-[11px] font-bold tracking-wider uppercase text-black bg-white px-3 py-1 rounded-full">
                     {activeFeature.chip} AGENT
@@ -172,7 +180,7 @@ export default function FeaturesDemo() {
               </div>
 
               {/* Demo Form */}
-              <div className="relative p-6 sm:p-8 md:p-10 bg-[rgba(14,18,21,0.6)] backdrop-blur-md">
+              <div className="relative p-6 sm:p-8 md:p-10 bg-[rgba(14,18,21,0.6)] backdrop-blur-md z-[2]">
                 {/* Decorative background gradients */}
                 <div className="absolute top-0 right-0 w-32 h-32 bg-accent-primary/10 blur-[50px] rounded-full pointer-events-none"></div>
                 <div className="absolute bottom-0 left-0 w-24 h-24 bg-blue-500/10 blur-[40px] rounded-full pointer-events-none"></div>
@@ -277,8 +285,6 @@ export default function FeaturesDemo() {
                         </>
                       )}
                     </button>
-
-                    
                   </form>
                 </div>
               </div>

@@ -1,5 +1,8 @@
+"use client";
+
 import Reveal from "./Reveal";
 import Link from "next/link";
+import GrainOverlay from "./GrainOverlay";
 
 export default function Hero() {
   return (
@@ -48,7 +51,7 @@ export default function Hero() {
 
       <Reveal className="container max-w-[var(--container-width)] mx-auto px-4 sm:px-6 relative z-10">
         <span className="text-[10px] sm:text-[11px] font-bold tracking-[0.05em] uppercase text-accent-primary bg-[rgba(99,242,154,0.08)] px-3 py-1.5 rounded-full border border-[rgba(99,242,154,0.2)] inline-block mb-6">
-          MEET INDUS CALLING AGENTS
+          MEET MERCURY CALLING AGENTS
         </span>
         <h1 className="text-[32px] sm:text-[48px] lg:text-[64px] leading-[1.1] font-semibold tracking-[-0.03em] mb-4 sm:mb-6 text-white max-w-[900px] mx-auto">
           AI phone calls
@@ -75,10 +78,13 @@ export default function Hero() {
         </div>
 
         <Reveal className="bg-bg-surface border border-border-light rounded-[20px] overflow-hidden relative flex flex-col lg:flex-row h-auto lg:h-[400px]">
-          {/* Top highlight */}
-          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(255,255,255,0.1)] to-transparent"></div>
+          {/* Grain overlay */}
+          <GrainOverlay opacity={0.15} />
 
-          <div className="flex-1 border-b lg:border-b-0 lg:border-r border-border-light flex flex-col items-center justify-center p-8 sm:p-10 min-h-[300px] lg:min-h-auto">
+          {/* Top highlight */}
+          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(255,255,255,0.1)] to-transparent z-[2]"></div>
+
+          <div className="flex-1 border-b lg:border-b-0 lg:border-r border-border-light flex flex-col items-center justify-center p-8 sm:p-10 min-h-[300px] lg:min-h-auto relative z-[2]">
             <div className="flex items-center gap-1 h-[60px]">
               {[...Array(12)].map((_, i) => (
                 <div
@@ -96,7 +102,7 @@ export default function Hero() {
               LIVE // +1 (415) 555-0192
             </div>
           </div>
-          <div className="flex-1 bg-[rgba(255,255,255,0.01)] p-6 sm:p-10 flex flex-col text-left min-h-[300px] lg:min-h-auto">
+          <div className="flex-1 bg-[rgba(255,255,255,0.01)] p-6 sm:p-10 flex flex-col text-left min-h-[300px] lg:min-h-auto relative z-[2]">
             <div className="mb-4 text-sm">
               <div className="text-[11px] text-text-muted mb-1 font-semibold uppercase">
                 User
@@ -107,7 +113,7 @@ export default function Hero() {
             </div>
             <div className="mb-4 text-sm">
               <div className="text-[11px] text-accent-primary mb-1 font-semibold uppercase">
-                Indus Agent
+                Mercury Agent
               </div>
               <div className="bg-[rgba(99,242,154,0.05)] border border-border-active px-3.5 py-2.5 rounded-lg text-text-primary inline-block">
                 I can help with that. Looking at Tuesday, I have openings at 10

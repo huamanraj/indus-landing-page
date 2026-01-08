@@ -1,11 +1,14 @@
 import Reveal from "./Reveal";
 import Link from "next/link";
+import GrainOverlay from "./GrainOverlay";
 
 export default function FooterCTA() {
   return (
     <section className="py-20">
       <Reveal className="container max-w-[var(--container-width)] mx-auto px-6">
         <div className="group relative overflow-hidden bg-bg-surface border border-border-light rounded-[20px] py-20 px-6 text-center transition-all duration-300 transform-gpu hover:-translate-y-0.5 hover:border-[rgba(99,242,154,0.35)] hover:shadow-[0_0_0_1px_rgba(99,242,154,0.10),0_28px_90px_-45px_rgba(99,242,154,0.35)]">
+          {/* Grain overlay */}
+          <GrainOverlay opacity={0.15} />
           {/* gradient layers */}
           <div
             aria-hidden="true"
@@ -35,8 +38,8 @@ export default function FooterCTA() {
               </Link>
             </div>
             <p className="mt-6 text-[13px] text-text-muted flex justify-center items-center gap-2">
-              <i className="ph ph-clock text-lg"></i> Up and running in less than
-              15 minutes.
+              <i className="ph ph-clock text-lg"></i> Up and running in less
+              than 15 minutes.
             </p>
           </div>
         </div>

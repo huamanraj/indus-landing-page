@@ -1,4 +1,5 @@
 import Reveal from "./Reveal";
+import GrainOverlay from "./GrainOverlay";
 
 export default function HowItWorks() {
   return (
@@ -54,10 +55,13 @@ function StepCard({
 }) {
   return (
     <div className="h-[400px] flex flex-col justify-between p-8 bg-bg-surface border border-border-light rounded-[20px] overflow-hidden relative transition-all duration-300 hover:border-border-hover hover:-translate-y-1 hover:bg-bg-surface-hover">
-      {/* Top highlight */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(255,255,255,0.1)] to-transparent"></div>
+      {/* Grain overlay */}
+      <GrainOverlay opacity={0.12} />
 
-      <div>
+      {/* Top highlight */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(255,255,255,0.1)] to-transparent z-[2]"></div>
+
+      <div className="relative z-[2]">
         <div className="font-space-mono text-[48px] text-[rgba(255,255,255,0.05)] font-bold leading-none">
           {number}
         </div>
@@ -66,7 +70,7 @@ function StepCard({
           {description}
         </p>
       </div>
-      <div className="flex-1 my-5 bg-[rgba(0,0,0,0.3)] rounded-lg border border-dashed border-border-light flex items-center justify-center">
+      <div className="flex-1 my-5 bg-[rgba(0,0,0,0.3)] rounded-lg border border-dashed border-border-light flex items-center justify-center relative z-[2]">
         <i className={`ph ${icon} text-[32px] text-text-muted`}></i>
       </div>
     </div>

@@ -1,5 +1,6 @@
 import Reveal from "./Reveal";
 import Link from "next/link";
+import GrainOverlay from "./GrainOverlay";
 
 export default function Pricing() {
   return (
@@ -79,28 +80,32 @@ function PricingCard({
 }) {
   return (
     <div
-      className={`p-8 bg-bg-surface border rounded-[20px] transition-all duration-300 hover:border-border-hover hover:-translate-y-1 hover:bg-bg-surface-hover flex flex-col h-full ${
+      className={`relative overflow-hidden p-8 bg-bg-surface border rounded-[20px] transition-all duration-300 hover:border-border-hover hover:-translate-y-1 hover:bg-bg-surface-hover flex flex-col h-full ${
         popular ? "border-accent-primary" : "border-border-light"
       }`}
     >
+      {/* Grain overlay */}
+      <GrainOverlay opacity={0.12} />
       {popular && (
-        <div className="mb-2">
+        <div className="mb-2 relative z-[2]">
           <span className="text-[11px] font-bold tracking-[0.05em] uppercase text-accent-primary bg-[rgba(99,242,154,0.08)] px-3 py-1.5 rounded-full border border-[rgba(99,242,154,0.2)]">
             MOST POPULAR
           </span>
         </div>
       )}
-      <h3 className="text-[18px] mb-2 text-white font-medium">{title}</h3>
-      <p className="text-[14px] text-text-secondary leading-[1.6]">
+      <h3 className="text-[18px] mb-2 text-white font-medium relative z-[2]">
+        {title}
+      </h3>
+      <p className="text-[14px] text-text-secondary leading-[1.6] relative z-[2]">
         {description}
       </p>
-      <div className="text-[32px] font-bold text-white my-4">
+      <div className="text-[32px] font-bold text-white my-4 relative z-[2]">
         {price}
         {priceSuffix && (
           <span className="text-[14px] font-normal text-text-muted">/mo</span>
         )}
       </div>
-      <ul className="flex-1 my-6 list-none p-0">
+      <ul className="flex-1 my-6 list-none p-0 relative z-[2]">
         {features.map((feature, i) => (
           <li
             key={i}
@@ -113,7 +118,7 @@ function PricingCard({
       </ul>
       <Link
         href="#"
-        className={`w-full inline-flex items-center justify-center px-6 py-3 rounded-full font-medium text-[15px] transition-all ${
+        className={`w-full inline-flex items-center justify-center px-6 py-3 rounded-full font-medium text-[15px] transition-all relative z-[2] ${
           buttonStyle === "primary"
             ? "bg-accent-primary text-black border border-accent-primary hover:shadow-[0_0_15px_rgba(99,242,154,0.3)] hover:-translate-y-px"
             : "bg-transparent text-text-primary border border-border-light hover:bg-[rgba(255,255,255,0.05)] hover:border-text-secondary"

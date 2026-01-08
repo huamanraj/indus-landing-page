@@ -10,7 +10,7 @@ export default function FAQ() {
     {
       question: "What is the average latency?",
       answer:
-        "Indus is optimized for conversational speed. Our average end-to-end latency (voice-to-voice) is under 500ms, creating a natural feeling of conversation without awkward pauses.",
+        "Mercury is optimized for conversational speed. Our average end-to-end latency (voice-to-voice) is under 500ms, creating a natural feeling of conversation without awkward pauses.",
     },
     {
       question: "Can the AI transfer calls to a human?",
