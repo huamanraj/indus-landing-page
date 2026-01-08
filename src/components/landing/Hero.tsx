@@ -54,28 +54,35 @@ export default function Hero() {
           MEET MERCURY CALLING AGENTS
         </span>
         <h1 className="text-[32px] sm:text-[48px] lg:text-[64px] leading-[1.1] font-semibold tracking-[-0.03em] mb-4 sm:mb-6 text-white max-w-[900px] mx-auto">
-          AI phone calls
-          <br className="hidden sm:block" /> that sound human.
+          AI phone calls that sound
+          <br className="hidden sm:block" /> like a real teammate.
         </h1>
-        <p className="text-[16px] sm:text-[20px] text-text-secondary max-w-[600px] mx-auto mb-8 sm:mb-10 px-4">
-          Deploy enterprise-grade voice agents with sub-500ms latency, native
-          tool calling, and full observability. Built for scale.
+        <p className="text-[16px] sm:text-[20px] text-text-secondary max-w-[680px] mx-auto mb-4 px-4">
+          Mercury is a voice agent you deploy for{" "}
+          <span className="text-white font-medium">
+            HR, reception, appointment setting, support, collections, and
+            surveys
+          </span>
+          . It handles real conversations, uses your tools, and finishes the
+          job—fast.
         </p>
 
-        <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 max-w-[300px] sm:max-w-none mx-auto mb-12">
+       
+        <div className="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 max-w-[300px] sm:max-w-none mx-auto mb-16">
           <Link
             href="#cases"
             className="inline-flex items-center justify-center px-6 py-3.5 rounded-full font-medium text-[15px] bg-white text-black border border-white hover:shadow-[0_0_15px_rgba(255,255,255,0.3)] hover:-translate-y-px transition-all w-full sm:w-auto"
           >
-            Try Now
+            Start Free
           </Link>
           <Link
             href="#"
             className="inline-flex items-center justify-center px-6 py-3.5 rounded-full font-medium text-[15px] text-text-primary border border-border-light hover:bg-[rgba(255,255,255,0.05)] hover:border-text-secondary transition-all w-full sm:w-auto"
           >
-            <i className="ph ph-phone mr-2"></i> Talk to Sales
+            <i className="ph ph-calendar-check mr-2"></i>Book a Demo
           </Link>
         </div>
+
 
         <Reveal className="bg-bg-surface border border-border-light rounded-[20px] overflow-hidden relative flex flex-col lg:flex-row h-auto lg:h-[400px]">
           {/* Grain overlay */}
@@ -98,7 +105,7 @@ export default function Hero() {
               ))}
             </div>
             <div className="mt-6 flex items-center gap-2 font-space-mono text-xs text-text-secondary">
-              <span className="w-2 h-2 bg-accent-primary rounded-full"></span>{" "}
+              <span className="w-2 h-2 bg-accent-primary rounded-full animate-pulse"></span>{" "}
               LIVE // +1 (415) 555-0192
             </div>
           </div>
@@ -108,7 +115,7 @@ export default function Hero() {
                 User
               </div>
               <div className="bg-[rgba(255,255,255,0.05)] px-3.5 py-2.5 rounded-lg text-text-primary inline-block">
-                I'd like to reschedule my appointment for Tuesday.
+                I&apos;d like to reschedule my appointment for Tuesday.
               </div>
             </div>
             <div className="mb-4 text-sm">
@@ -116,20 +123,23 @@ export default function Hero() {
                 Mercury Agent
               </div>
               <div className="bg-[rgba(99,242,154,0.05)] border border-border-active px-3.5 py-2.5 rounded-lg text-text-primary inline-block">
-                I can help with that. Looking at Tuesday, I have openings at 10
-                AM or 2 PM. Which works better?
+                I can help with that. I have openings Tuesday at 10 AM or 2 PM.
+                Which works better?
               </div>
             </div>
 
             <div className="flex flex-wrap gap-4 sm:gap-6 mt-auto pt-5 border-t border-border-light font-space-mono text-xs text-text-muted">
               <div className="metric">
-                LATENCY: <span className="text-accent-primary">480ms</span>
+                LATENCY: <span className="text-accent-primary">430ms</span>
               </div>
               <div className="metric">
                 SENTIMENT: <span className="text-accent-primary">POSITIVE</span>
               </div>
               <div className="metric">
                 INTENT: <span className="text-accent-primary">RESCHEDULE</span>
+              </div>
+              <div className="metric">
+                OUTCOME: <span className="text-accent-primary">BOOKED</span>
               </div>
             </div>
           </div>

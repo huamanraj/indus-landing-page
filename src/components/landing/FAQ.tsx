@@ -8,24 +8,29 @@ export default function FAQ() {
 
   const faqs = [
     {
-      question: "What is the average latency?",
+      question: "How does pricing work?",
       answer:
-        "Mercury is optimized for conversational speed. Our average end-to-end latency (voice-to-voice) is under 500ms, creating a natural feeling of conversation without awkward pauses.",
+        "It's based on call minutes, phone numbers, integrations, and deployment requirements. Book a demo and we'll quote accurately based on your specific needs.",
     },
     {
-      question: "Can the AI transfer calls to a human?",
+      question: "Can Mercury transfer to a human?",
       answer:
-        'Yes. You can configure "handoff triggers" (e.g., if sentiment turns negative or specific keywords are mentioned) to warm-transfer calls to a specific SIP endpoint or phone number.',
+        "Yes. Set rules for warm transfer based on intent, sentiment, keywords, or VIP callers. Mercury can pass a summary and context to ensure seamless handoffs.",
     },
     {
-      question: "Does it integrate with my CRM?",
+      question: "Does it integrate with my CRM and tools?",
       answer:
-        "We offer native integrations for Salesforce, HubSpot, and Zendesk. For other platforms, you can use our robust Function Calling API to fetch and push data to any REST endpoint.",
+        "Yes. Use native integrations where available or connect any REST API via tool calling. We support Salesforce, HubSpot, Zendesk, and more out of the box.",
     },
     {
-      question: "Is my data used to train your models?",
+      question: "How do you prevent hallucinations or risky behavior?",
       answer:
-        "No. On Enterprise plans, we offer a strict Zero Data Retention policy where your voice and transcript data is processed in memory and never stored or used for training.",
+        "You set guardrails: approved knowledge, allowed actions, restricted phrases, and escalation rules. Everything is observable and auditable.",
+    },
+    {
+      question: "How fast can we go live?",
+      answer:
+        "Most teams launch a working agent quickly, then iterate based on real call outcomes. Up and running in less than 15 minutes for simple use cases.",
     },
   ];
 
@@ -33,8 +38,8 @@ export default function FAQ() {
     <section className="py-20">
       <div className="container max-w-[800px] mx-auto px-6">
         <Reveal className="text-center mb-12">
-          <h2 className="text-[36px] font-semibold text-white">
-            Frequency Asked Questions
+          <h2 className="text-[32px] sm:text-[36px] font-semibold text-white">
+            Frequently Asked Questions
           </h2>
         </Reveal>
 
@@ -42,18 +47,20 @@ export default function FAQ() {
           {faqs.map((faq, index) => (
             <div key={index} className="border-b border-border-light py-6">
               <div
-                className="text-[18px] font-medium text-white cursor-pointer flex justify-between items-center"
+                className="text-[16px] sm:text-[18px] font-medium text-white cursor-pointer flex justify-between items-center gap-4 group"
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
               >
-                {faq.question}
+                <span className="group-hover:text-accent-primary transition-colors">
+                  {faq.question}
+                </span>
                 <i
-                  className={`ph ph-plus transition-transform duration-300 ${
-                    openIndex === index ? "rotate-45" : ""
+                  className={`ph ph-plus transition-transform duration-300 text-text-secondary group-hover:text-accent-primary flex-shrink-0 ${
+                    openIndex === index ? "rotate-45 text-accent-primary" : ""
                   }`}
                 ></i>
               </div>
               <div
-                className={`overflow-hidden transition-all duration-300 ease-in-out text-text-secondary text-[15px] leading-[1.6] ${
+                className={`overflow-hidden transition-all duration-300 ease-in-out text-text-secondary text-[14px] sm:text-[15px] leading-[1.7] ${
                   openIndex === index
                     ? "max-h-[200px] mt-4 opacity-100"
                     : "max-h-0 opacity-0"

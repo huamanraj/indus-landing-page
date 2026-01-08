@@ -1,6 +1,7 @@
 import Header from "@/components/landing/Header";
 import Hero from "@/components/landing/Hero";
 import SocialProof from "@/components/landing/SocialProof";
+import Benefits from "@/components/landing/Benefits";
 import FeaturesDemo from "@/components/landing/FeaturesDemo";
 import HowItWorks from "@/components/landing/HowItWorks";
 import EnterpriseSecurity from "@/components/landing/EnterpriseSecurity";
@@ -17,10 +18,12 @@ export default function Home() {
         <Header />
         <Hero />
         <SocialProof />
+
         <FeaturesDemo />
+        <Benefits />
         <HowItWorks />
         <EnterpriseSecurity />
-        <Pricing />
+    
         <FAQ />
         <FooterCTA />
         <Footer />

@@ -92,8 +92,8 @@ export default function Footer() {
               MERCURY
             </Link>
             <p className="text-[14px] text-text-secondary leading-[1.7] max-w-[46ch]">
-              Enterprise-grade conversational AI infrastructure: voice agents,
-              observability, and secure deployments.
+              Enterprise-grade voice agents for real workflows: calls, tool
+              actions, and full observability.
             </p>
           </div>
 
@@ -289,7 +289,7 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="pt-8 border-t border-border-light flex flex-col md:flex-row gap-4 justify-between items-start md:items-center text-[13px] text-text-muted">
-          <div>&copy; 2024 Mercury AI Inc. All rights reserved.</div>
+          <div>&copy; 2025 Mercury AI Inc. All rights reserved.</div>
           <div className="flex gap-4">
             <Link
               href="#"

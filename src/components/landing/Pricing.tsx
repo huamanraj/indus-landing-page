@@ -2,130 +2,105 @@ import Reveal from "./Reveal";
 import Link from "next/link";
 import GrainOverlay from "./GrainOverlay";
 
+const pricingFeatures = [
+  {
+    icon: "ph-lightning",
+    title: "Pilot-first",
+    description: "Start small, prove ROI, then expand",
+  },
+  {
+    icon: "ph-chart-bar",
+    title: "Volume-based",
+    description: "Discounts as call minutes grow",
+  },
+  {
+    icon: "ph-cloud",
+    title: "Deployment options",
+    description: "Shared, dedicated, or private environments",
+  },
+  {
+    icon: "ph-headset",
+    title: "Support options",
+    description: "Standard to enterprise SLAs",
+  },
+];
+
 export default function Pricing() {
   return (
-    <section id="pricing" className="py-20">
+    <section id="pricing" className="py-20 scroll-mt-20">
       <div className="container max-w-[var(--container-width)] mx-auto px-6">
         <Reveal className="mb-12 text-center">
-          <h2 className="text-[36px] font-semibold text-white">
-            Simple, transparent pricing
+          <h2 className="text-[32px] sm:text-[36px] font-semibold text-white mb-3">
+            Pricing that matches your call volume
           </h2>
+          <p className="text-[16px] sm:text-[18px] text-text-secondary max-w-[680px] mx-auto">
+            Mercury pricing depends on minutes, phone numbers, integrations, and
+            compliance needs. We&apos;ll recommend a plan after a quick call and
+            can start with a small pilot before scaling.
+          </p>
         </Reveal>
 
-        <Reveal className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <PricingCard
-            title="Starter"
-            description="For prototyping and side projects."
-            price="$0"
-            buttonText="Start Free"
-            buttonStyle="secondary"
-            features={[
-              "50 mins/month included",
-              "1 Phone number",
-              "Standard voices",
-            ]}
-          />
-          <PricingCard
-            title="Growth"
-            description="For scaling startups."
-            price="$99"
-            buttonText="Get Growth"
-            buttonStyle="primary"
-            popular={true}
-            features={[
-              "2,000 mins/month included",
-              "5 Phone numbers",
-              "Custom tools & Webhooks",
-              "Recording storage",
-            ]}
-          />
-          <PricingCard
-            title="Enterprise"
-            description="For volume and compliance."
-            price="Custom"
-            buttonText="Contact Sales"
-            buttonStyle="secondary"
-            priceSuffix={false}
-            features={[
-              "Volume discounts",
-              "Private cloud deployment",
-              "Dedicated support manager",
-              "SLA guarantees",
-            ]}
-          />
+        <Reveal className="max-w-[900px] mx-auto">
+          <div className="bg-bg-surface border border-border-light rounded-[24px] p-8 sm:p-10 lg:p-12 relative overflow-hidden">
+            {/* Grain overlay */}
+            <GrainOverlay opacity={0.12} />
+
+            {/* Top highlight */}
+            <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[rgba(255,255,255,0.1)] to-transparent z-[2]"></div>
+
+            {/* Gradient accents */}
+            <div
+              className="absolute -top-20 -right-20 w-[300px] h-[300px] bg-accent-primary/10 blur-[100px] rounded-full pointer-events-none"
+              aria-hidden="true"
+            ></div>
+            <div
+              className="absolute -bottom-20 -left-20 w-[250px] h-[250px] bg-blue-500/10 blur-[80px] rounded-full pointer-events-none"
+              aria-hidden="true"
+            ></div>
+
+            <div className="relative z-[2]">
+              {/* Features Grid */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10">
+                {pricingFeatures.map((feature, index) => (
+                  <div key={index} className="flex items-start gap-4">
+                    <div className="w-10 h-10 rounded-lg bg-[rgba(99,242,154,0.1)] flex items-center justify-center flex-shrink-0">
+                      <i
+                        className={`ph ${feature.icon} text-accent-primary text-lg`}
+                      ></i>
+                    </div>
+                    <div>
+                      <h3 className="text-white font-medium mb-1">
+                        {feature.title}
+                      </h3>
+                      <p className="text-text-secondary text-[14px]">
+                        {feature.description}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* CTA Buttons */}
+              <div className="flex flex-col sm:flex-row justify-center gap-4 pt-6 border-t border-border-light">
+                <Link
+                  href="#"
+                  className="inline-flex items-center justify-center px-8 py-4 rounded-full font-semibold text-[15px] bg-white text-black border border-white hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:-translate-y-px transition-all"
+                >
+                  <i className="ph ph-phone mr-2"></i>
+                  Talk to Sales
+                </Link>
+                <Link
+                  href="#"
+                  className="inline-flex items-center justify-center px-8 py-4 rounded-full font-semibold text-[15px] text-text-primary border border-border-light hover:bg-[rgba(255,255,255,0.05)] hover:border-text-secondary transition-all"
+                >
+                  <i className="ph ph-calendar-check mr-2"></i>
+                  Book a Demo
+                </Link>
+              </div>
+            </div>
+          </div>
         </Reveal>
       </div>
     </section>
-  );
-}
-
-function PricingCard({
-  title,
-  description,
-  price,
-  priceSuffix = true,
-  buttonText,
-  buttonStyle,
-  features,
-  popular = false,
-}: {
-  title: string;
-  description: string;
-  price: string;
-  priceSuffix?: boolean;
-  buttonText: string;
-  buttonStyle: "primary" | "secondary";
-  features: string[];
-  popular?: boolean;
-}) {
-  return (
-    <div
-      className={`relative overflow-hidden p-8 bg-bg-surface border rounded-[20px] transition-all duration-300 hover:border-border-hover hover:-translate-y-1 hover:bg-bg-surface-hover flex flex-col h-full ${
-        popular ? "border-accent-primary" : "border-border-light"
-      }`}
-    >
-      {/* Grain overlay */}
-      <GrainOverlay opacity={0.12} />
-      {popular && (
-        <div className="mb-2 relative z-[2]">
-          <span className="text-[11px] font-bold tracking-[0.05em] uppercase text-accent-primary bg-[rgba(99,242,154,0.08)] px-3 py-1.5 rounded-full border border-[rgba(99,242,154,0.2)]">
-            MOST POPULAR
-          </span>
-        </div>
-      )}
-      <h3 className="text-[18px] mb-2 text-white font-medium relative z-[2]">
-        {title}
-      </h3>
-      <p className="text-[14px] text-text-secondary leading-[1.6] relative z-[2]">
-        {description}
-      </p>
-      <div className="text-[32px] font-bold text-white my-4 relative z-[2]">
-        {price}
-        {priceSuffix && (
-          <span className="text-[14px] font-normal text-text-muted">/mo</span>
-        )}
-      </div>
-      <ul className="flex-1 my-6 list-none p-0 relative z-[2]">
-        {features.map((feature, i) => (
-          <li
-            key={i}
-            className="flex gap-2.5 text-[14px] text-text-secondary mb-3"
-          >
-            <i className="ph ph-check-circle text-accent-primary mt-0.5"></i>
-            {feature}
-          </li>
-        ))}
-      </ul>
-      <Link
-        href="#"
-        className={`w-full inline-flex items-center justify-center px-6 py-3 rounded-full font-medium text-[15px] transition-all relative z-[2] ${
-          buttonStyle === "primary"
-            ? "bg-accent-primary text-black border border-accent-primary hover:shadow-[0_0_15px_rgba(99,242,154,0.3)] hover:-translate-y-px"
-            : "bg-transparent text-text-primary border border-border-light hover:bg-[rgba(255,255,255,0.05)] hover:border-text-secondary"
-        }`}
-      >
-        {buttonText}
-      </Link>
-    </div>
   );
 }

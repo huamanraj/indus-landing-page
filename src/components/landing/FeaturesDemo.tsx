@@ -10,19 +10,29 @@ const features = [
     icon: "ph-phone-incoming",
     title: "Receptionist",
     description:
-      "Handles after-hours calls, answers FAQs, and routes complex issues.",
+      "Answers FAQs, captures intent, and routes to the right team instantly.",
     transcript:
-      '"Thanks for calling Mercury. How can I direct your call today?"',
+      '"Thanks for calling. I can help with scheduling, billing questions, or getting you to the right team. What\'s the reason for your call today?"',
     chip: "Reception",
+  },
+  {
+    id: "hr-screening",
+    icon: "ph-user-list",
+    title: "HR Screen + Scheduling",
+    description:
+      "Runs first-round screens, confirms eligibility, and books interviews.",
+    transcript:
+      '"Hi, I\'m calling to complete a quick eligibility screen for the role you applied for. Do you have a few minutes?"',
+    chip: "HR",
   },
   {
     id: "appointment",
     icon: "ph-calendar-check",
     title: "Appointment Setter",
     description:
-      "Integrates with Calendly/Google Calendar to negotiate times and book slots.",
+      "Negotiates times naturally and books into Calendly or Google Calendar.",
     transcript:
-      '"Hi, I\'m calling to schedule your appointment. Does Tuesday at 2 PM work?"',
+      '"I\'m calling to schedule your appointment. Does Tuesday at 2 PM work, or would another time be better?"',
     chip: "Scheduling",
   },
   {
@@ -30,40 +40,30 @@ const features = [
     icon: "ph-funnel",
     title: "Lead Qualification",
     description:
-      "Qualifies inbound leads based on BANT criteria and syncs to Salesforce.",
+      "Asks the right questions, scores fit, and syncs summaries to Salesforce/HubSpot.",
     transcript:
-      '"Thanks for your interest. Could you tell me a bit about your budget and timeline?"',
+      '"Thanks for your interest. Could you tell me a bit about your current workflow and what you\'re hoping to solve?"',
     chip: "Sales",
-  },
-  {
-    id: "surveys",
-    icon: "ph-clipboard-text",
-    title: "Surveys",
-    description:
-      "Conducts NPS and market research surveys via natural conversation.",
-    transcript:
-      '"Hi, we\'d love to get your feedback on your recent experience. Do you have a moment?"',
-    chip: "Research",
   },
   {
     id: "support",
     icon: "ph-life-buoy",
     title: "Customer Support",
     description:
-      "Triages support tickets, resets passwords, and handles tier-1 issues.",
+      "Resets passwords, checks status, creates tickets, and escalates with context.",
     transcript:
-      '"I see you\'re having trouble with your account. Let me check that for you."',
+      '"I see you\'re having trouble with your account. Let me check that for you and get it sorted out."',
     chip: "Support",
   },
   {
-    id: "debt",
-    icon: "ph-currency-dollar",
-    title: "Debt Collection",
+    id: "surveys",
+    icon: "ph-clipboard-text",
+    title: "Surveys + Feedback",
     description:
-      "Empathetic, compliant payment reminders and arrangement negotiation.",
+      "Runs NPS and market research calls without sounding scripted.",
     transcript:
-      '"This is a courtesy call regarding your balance. We have a few payment options."',
-    chip: "Finance",
+      '"Hi, we\'d love your feedback on your recent experience. On a scale of 1 to 10, how likely are you to recommend us?"',
+    chip: "Research",
   },
 ];
 

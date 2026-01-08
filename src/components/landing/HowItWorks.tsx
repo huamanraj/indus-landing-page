@@ -3,37 +3,40 @@ import GrainOverlay from "./GrainOverlay";
 
 export default function HowItWorks() {
   return (
-    <section className="py-20">
+    <section id="product" className="py-20 scroll-mt-20">
       <div className="container max-w-[var(--container-width)] mx-auto px-6">
         <Reveal className="mb-12">
           <h2 className="text-[36px] font-semibold text-white mb-3">
             From prompt to phone call
           </h2>
+          <p className="text-[16px] sm:text-[18px] text-text-secondary max-w-[600px]">
+            Build, test, deploy, and monitor—all without rewiring your stack.
+          </p>
         </Reveal>
 
         <Reveal className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <StepCard
             number="01"
             title="Build"
-            description="Define agent persona, upload knowledge base, and set guardrails."
+            description="Define the role (HR, receptionist, setter), add knowledge, and set guardrails."
             icon="ph-wrench"
           />
           <StepCard
             number="02"
             title="Test"
-            description="Simulate edge cases in the test console with text-to-voice preview."
+            description="Simulate hard scenarios and tune behavior before going live."
             icon="ph-flask"
           />
           <StepCard
             number="03"
             title="Deploy"
-            description="Purchase numbers or port existing ones. Connect via SIP or WebRTC."
+            description="Buy numbers or port yours. Connect via SIP/WebRTC. Launch without rewiring your stack."
             icon="ph-rocket-launch"
           />
           <StepCard
             number="04"
             title="Monitor"
-            description="Analyze call logs, success rates, and sentiment trends."
+            description="Track outcomes, sentiment, and tool success. Fix what fails. Scale what works."
             icon="ph-chart-line-up"
           />
         </Reveal>

@@ -6,7 +6,7 @@ export default function FooterCTA() {
   return (
     <section className="py-20">
       <Reveal className="container max-w-[var(--container-width)] mx-auto px-6">
-        <div className="group relative overflow-hidden bg-bg-surface border border-border-light rounded-[20px] py-20 px-6 text-center transition-all duration-300 transform-gpu hover:-translate-y-0.5 hover:border-[rgba(99,242,154,0.35)] hover:shadow-[0_0_0_1px_rgba(99,242,154,0.10),0_28px_90px_-45px_rgba(99,242,154,0.35)]">
+        <div className="group relative overflow-hidden bg-bg-surface border border-border-light rounded-[24px] py-16 sm:py-20 px-6 text-center transition-all duration-300 transform-gpu hover:-translate-y-0.5 hover:border-[rgba(99,242,154,0.35)] hover:shadow-[0_0_0_1px_rgba(99,242,154,0.10),0_28px_90px_-45px_rgba(99,242,154,0.35)]">
           {/* Grain overlay */}
           <GrainOverlay opacity={0.15} />
           {/* gradient layers */}
@@ -20,26 +20,31 @@ export default function FooterCTA() {
           </div>
 
           <div className="relative z-10">
-            <h2 className="text-[40px] text-white mb-6 font-semibold">
-              Ready to build the future of voice?
+            <h2 className="text-[32px] sm:text-[40px] text-white mb-4 font-semibold leading-tight">
+              Ready to put Mercury on the phone?
             </h2>
-            <div className="flex justify-center gap-4">
+            <p className="text-text-secondary text-[16px] sm:text-[18px] mb-8 max-w-[500px] mx-auto">
+              Mercury handles repetitive calls so your team can focus on the
+              work that actually needs humans.
+            </p>
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
               <Link
                 href="#"
-                className="inline-flex items-center justify-center px-6 py-3 rounded-full font-medium text-[15px] bg-white text-black border border-white hover:shadow-[0_0_15px_rgba(255,255,255,0.3)] hover:-translate-y-px transition-all"
+                className="inline-flex items-center justify-center px-8 py-4 rounded-full font-semibold text-[15px] bg-white text-black border border-white hover:shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:-translate-y-px transition-all"
               >
                 Start Free
               </Link>
               <Link
                 href="#"
-                className="inline-flex items-center justify-center px-6 py-3 rounded-full font-medium text-[15px] text-text-primary border border-border-light hover:bg-[rgba(255,255,255,0.05)] hover:border-text-secondary transition-all"
+                className="inline-flex items-center justify-center px-8 py-4 rounded-full font-semibold text-[15px] text-text-primary border border-border-light hover:bg-[rgba(255,255,255,0.05)] hover:border-text-secondary transition-all"
               >
+                <i className="ph ph-phone mr-2"></i>
                 Talk to Sales
               </Link>
             </div>
             <p className="mt-6 text-[13px] text-text-muted flex justify-center items-center gap-2">
-              <i className="ph ph-clock text-lg"></i> Up and running in less
-              than 15 minutes.
+              <i className="ph ph-clock text-accent-primary"></i>Up and running
+              in less than 15 minutes.
             </p>
           </div>
         </div>
